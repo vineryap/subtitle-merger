@@ -1,5 +1,5 @@
 import { Subtitle } from "./Subtitle";
-import { subtitleObject } from "./types";
+import { ParsedSubtitle } from "./types";
 import {
   parseText,
   isIntervalslOverlap,
@@ -13,7 +13,7 @@ export function merge(subtitleTextOne: string, SubtitleTextTwo: string) {
     const fileTwoSections = parseText(SubtitleTextTwo);
 
     if (fileOneSections && fileTwoSections) {
-      let mergedSections: subtitleObject[] = [];
+      let mergedSections: ParsedSubtitle[] = [];
       const appendedIndex: number[] = [];
 
       for (let index = 0; index < fileOneSections.length; index++) {

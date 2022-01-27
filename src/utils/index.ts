@@ -1,4 +1,4 @@
-import { Timestamp, subtitleObject } from "../types";
+import { Timecodes, ParsedSubtitle } from "../types";
 
 const timestampRegex = /(?:(\d{1,}):)?(\d{2}):(\d{2})[,.](\d{3})/;
 
@@ -16,8 +16,8 @@ export function parseTimestampToMs(timestamp: string): number {
 }
 
 export function isIntervalslOverlap(
-  timestampOne: Timestamp,
-  timestampTwo: Timestamp
+  timestampOne: Timecodes,
+  timestampTwo: Timecodes
 ): boolean {
   return (
     (timestampTwo.start < timestampOne.end &&
@@ -41,7 +41,7 @@ export function parseText(text: string | undefined) {
       new RegExp(timestampLineRegex.source + "\n(.*?)\n\n", "gs")
     );
 
-    const parsed: subtitleObject[] | undefined = sections?.map((section) => {
+    const parsed: ParsedSubtitle[] | undefined = sections?.map((section) => {
       const timestamp = (
         section.match(timestampLineRegex) as RegExpMatchArray
       )[0];
@@ -66,7 +66,7 @@ export function parseText(text: string | undefined) {
   return null;
 }
 
-export function sortSubtitleSection(sections: subtitleObject[]) {
+export function sortSubtitleSection(sections: ParsedSubtitle[]) {
   return sections.sort((a, b) => {
     if (a.timestamp.start < b.timestamp.start) {
       return -1;
@@ -78,7 +78,7 @@ export function sortSubtitleSection(sections: subtitleObject[]) {
   });
 }
 
-export function joinSubtitleSections(sections: subtitleObject[]) {
+export function joinSubtitleSections(sections: ParsedSubtitle[]) {
   let subtitle = "";
   for (let index = 0; index < sections.length; index++) {
     const { timestamp, text } = sections[index];

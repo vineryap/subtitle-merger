@@ -1,10 +1,10 @@
 export class Subtitle {
-  contents: string;
-  constructor(contents: string) {
-    this.contents = contents;
+  content: string;
+  constructor(content: string) {
+    this.content = content;
   }
 
   get blob() {
-    return new Blob([this.contents], { type: "text/plain" });
+    return new Blob([this.content], { type: "text/plain" });
   }
 }
