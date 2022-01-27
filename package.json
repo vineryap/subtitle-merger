@@ -2,7 +2,14 @@
   "name": "subtitle-merger",
   "version": "0.1.0",
   "description": "",
-  "keywords": [],
+  "keywords": [
+    "srt",
+    "subrip",
+    "subtitle",
+    "subtitle merger",
+    "merge subtitle",
+    "merge srt"
+  ],
   "files": [
     "dist"
   ],
