@@ -8,7 +8,9 @@ No dependencies subtitle merger.
 
 ### npm
 
-`npm i subtitle-merger`
+```shell
+$ npm i subtitle-merger
+```
 
 ## Usage
 
