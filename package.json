@@ -1,7 +1,7 @@
 {
   "name": "subtitle-merger",
-  "version": "0.1.0",
-  "description": "",
+  "version": "1.0.0",
+  "description": "A library to merge two subtitles.",
   "keywords": [
     "srt",
     "subrip",
