@@ -1,5 +1,3 @@
-import { Timecodes, ParsedSubtitle } from "../types";
-
 const timestampRegex = /(?:(\d{1,}):)?(\d{2}):(\d{2})[,.](\d{3})/;
 
 export function parseTimestampToMs(timestamp: string): number {
@@ -20,10 +18,10 @@ export function isIntervalslOverlap(
   timestampTwo: Timecodes
 ): boolean {
   return (
-    (timestampTwo.start < timestampOne.end &&
-      timestampTwo.end > timestampOne.start) ||
-    (timestampOne.start < timestampTwo.end &&
-      timestampOne.end > timestampTwo.start)
+    (timestampTwo.start < timestampOne.end + Number.EPSILON &&
+      timestampTwo.end > timestampOne.start - Number.EPSILON) ||
+    (timestampOne.start < timestampTwo.end + Number.EPSILON &&
+      timestampOne.end > timestampTwo.start - Number.EPSILON)
   );
 }
 

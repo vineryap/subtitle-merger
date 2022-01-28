@@ -1,10 +1,10 @@
-export interface Timecodes {
+interface Timecodes {
   start: number;
   end: number;
   value: string;
 }
 
-export interface ParsedSubtitle {
+interface ParsedSubtitle {
   timestamp: Timecodes;
   text: string;
 }
